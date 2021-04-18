@@ -1,0 +1,5 @@
+node_modules/*
+!/node_modules/@vuepress/
+/node_modules/@vuepress/*
+!/node_modules/@vuepress/theme-default
+dist
