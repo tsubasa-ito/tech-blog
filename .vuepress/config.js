@@ -17,11 +17,20 @@ module.exports = {
         github: {
           account: 'Tsubasa',
           link: 'https://github.com/tsubasa-ito'
-        }
+        },
+        twitter: {
+          account: 'Tsubasa',
+          link: 'https://twitter.com/basabasa8770',
+        },
       }
     },
     headerBackground: {
       useGeo: true
+    },
+    footer: {
+      poweredBy: true,
+      poweredByTheme: true,
+      custom: 'Copyright 2021-present | Tsubasa',
     },
     lastUpdated: false,
     nav: [
