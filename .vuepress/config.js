@@ -1,9 +1,14 @@
 module.exports = {
   title: 'Tsubasa Web Memo',
   description: '気になったことの備忘録的なメモ（プログラミング・マーケティング）',
-  theme: '@vuepress/theme-default',
+  theme: '@vuepress/theme-blog',
+  locales: {
+    '/': {
+      lang: 'ja'
+    }
+  },
   plugins: [
-    "@vuepress/theme-default"
+    '@vuepress/blog'
   ],
   theme: 'meteorlxy',
   themeConfig: {
@@ -35,7 +40,7 @@ module.exports = {
     lastUpdated: false,
     nav: [
       { text: 'Home', link: '/', exact: true },
-      { text: 'Posts', link: '/posts/sample/sample', exact: false  },
+      { text: 'Posts', link: '/posts/', exact: false  },
       { text: 'About', link: '/about/', exact: false  }, 
     ],
   },

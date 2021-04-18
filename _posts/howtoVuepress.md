@@ -1,6 +1,9 @@
 ---
 title: VuePressで初めての投稿
 layout: post
+tags: 
+  - JavaScript
+  - DOM
 date: 2021-04-18
 meta:
   - name: vuepress 更新
@@ -8,7 +11,7 @@ meta:
 ---
 
 
-# 更新したら…
+## 更新したら…
 今のところ更新したら、これしなきゃダメだよね。
 
 ```
