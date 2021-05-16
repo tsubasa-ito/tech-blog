@@ -3,8 +3,8 @@ title: ＃2 駆け出しエンジニアのメモ
 layout: post
 tags: 
   - laravel
-  - Vue
   - Git
+  - CSS
 date: 2021-05-07
 meta:
   - name: 駆け出しエンジニア ブログ 更新
@@ -97,7 +97,7 @@ git push -u origin master
 全変更を取り消す
 - `git reset HEAD .`
 
-`HEAD`…最新のコミットのこと
+`HEAD`…今いるブランチ&最新のコミットのこと
 
 直前のコミットをやり直す
 - `git commit --amend`
@@ -116,8 +116,14 @@ fetchとpush先を見ることができる
 
 - `git stash`
 
-退避させたものを元に戻す
-- `git pop`
+stashしたコミットなどを見たい場合
+- `git stash list`
+
+退避させたものを元に戻す（N番目）
+- `git stash apply stash@{N}`
+
+stashしたものを削除したい時（N番目）
+- `git stash drop stash@{N}`
 
 > 参考[【git stash】コミットはせずに変更を退避したいとき](https://qiita.com/chihiro/items/f373873d5c2dfbd03250)
 
