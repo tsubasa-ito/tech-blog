@@ -18,22 +18,6 @@ meta:
 
 その際は教えていただきたいです。むちゃくちゃ嬉しいです。チョコあげます。🍫
 
-- [laravel について](#laravel-について)
-  - [groupBy](#groupby)
-  - [pluck](#pluck)
-  - [whereIn()](#wherein)
-  - [map](#map)
-  - [distinct](#distinct)
-  - [implode](#implode)
-- [やりたいこと](#やりたいこと)
-  - [結論](#結論)
-  - [現状](#現状)
-  - [解決策](#解決策)
-  - [参考](#参考)
-- [Aliasについて](#aliasについて)
-- [その他](#その他)
-  - [Atomic Design について…](#atomic-design-について)
-
 
 ## laravel について
 
@@ -219,6 +203,8 @@ alias unittest="docker-compose exec php  vendor/phpunit/phpunit/phpunit"
 ルートディレクトリで一回実行。そして、エイリアスを実行したいディレクトリで↑上のコマンドで「エイリアス使わせてねー」と申請しておけばOK。
 
 これでそのディレクトリで`unittest`を使えるようになった。
+
+※ただし、ターミナルを閉じると`source ~/.bash_profile`がリセットされるので、ターミナルを閉じた場合は、毎回このコマンドを実行する必要がある。
 
 ---
 

@@ -4,7 +4,7 @@ layout: post
 tags: 
   - laravel
   - Git
-  - CSS
+  - Web RTC
 date: 2021-05-16
 meta:
   - name: 駆け出しエンジニア ブログ 更新
@@ -222,7 +222,7 @@ pick eagat24 ファイルの追加
 edit bk24ya9 READMEの修正とindexの修正
 ```
 
-`git resete HEAD^`
+`git reset HEAD^`
 
 それぞれ、ステージとコミットする
 ```

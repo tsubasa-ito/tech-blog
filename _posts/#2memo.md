@@ -24,13 +24,14 @@ meta:
 
 gitは『スナップショット』保存している
 
+### add
 `git clone`はローカルリポジトリとワークツリー（ファイル）がコピーされている
 
 - `git add ファイル名`
 - `git add ディレクトリ名`
 - `git add .`(←全てのこと)
 
-<br>
+### commit
 一つのプルリクに複数のコミットがいい。（コミットの粒度は小さく）
 
 コミットメッセージはなぜかを書くと良い
@@ -39,7 +40,7 @@ gitは『スナップショット』保存している
 - `git commit -m 'message'`
 - `git commit -v`
 
-<br>
+### status,diff,log
 
 - `git status`
 ワークリーとステージの比較。または、ステージとローカルリポジトリの比較。をするコマンドである。
@@ -63,8 +64,8 @@ git add した後の変更分を見たい時
 
 表示するコミット数を制限する（最近のコミットのログを見たい時に使用）
 
-<br>
 
+### remove
 ファイルごと削除（ワークツリー・ローカルリポジトリどちらも削除される）
 - `git rm ファイル名`
 - `git rm ディレクトリ名`
@@ -78,6 +79,12 @@ gitの`origin`はリモートリポジトリのニックネームみたいなも
 
 git push -u origin master
 の`-u`で次回からは`git push`のみで通るようになるオプション
+
+ブランチ切っているときに`push`したい場合（頻出）
+- `git push origin HEAD`
+
+> [git push origin HEADを知らない人は時間を無駄にしています！
+](https://qiita.com/Takao_/items/44d2aa23d6b1ab22a53a?utm_content=bufferf2f0f&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
 
 <br>
 
@@ -99,11 +106,15 @@ git push -u origin master
 
 `HEAD`…今いるブランチ&最新のコミットのこと
 
+### commit取り消し
+
 直前のコミットをやり直す
 - `git commit --amend`
 
 ※ただし、リモートリポジトリにpushしたコミットはやり直してはいけない。
 pushしたが、やり直したい場合はもう一度commitし直すこと。
+
+### remote確認
 
 今の自分のリモートリポジトリを示す
 - `git remote`
@@ -111,7 +122,8 @@ pushしたが、やり直したい場合はもう一度commitし直すこと。
 fetchとpush先を見ることができる
 - `git remote -v`
 
-<br>
+
+### stash
 一旦、コミットしたくないコードを退避させる方法
 
 - `git stash`
@@ -131,7 +143,7 @@ stashしたものを削除したい時（N番目）
 
 ## CSS
 
-右揃えや中央揃えなどをしたい時にセットで使うCSS
+### 右揃えや中央揃えなどをしたい時にセットで使うCSS
 
 ```
 display: flex;
@@ -142,6 +154,7 @@ justify-content:end;
 
 ***
 
+### その他
 - 【VScode】`markdownlint`のプラグインを入れていれば、`Command + shift + P`でコマンドパレットが出てくる。そこで`markdown all`と入れれば、『目次作成』ができる。
 - 【VScode】`Command + shift + P`で開いたコマンドパレットに`Format Document`と入れると`Prettier`が動いてJSを整形してくれる
 - 【YouTubeサイト】`shift + >` で倍速が早くなる。`shift + <`で倍速が遅くなる。
