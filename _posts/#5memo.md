@@ -93,10 +93,10 @@ Web・モバイルアプリにしてもブログにしても、「他者（他�
 
 ### Vuexについてのまとめ
 
-`state`: data保管庫（.vueから値を取り出す場合はgettersを使用）
-`mutations`: stateの上書き(代入)
-`actions`: methods的な。storeの上書き以外の処理や非同期通信。別actionsの呼び出しも可能
-`getters`: stateの情報を取得。別gettersの呼び出しも可能。
+- `state`: data保管庫（.vueから値を取り出す場合はgettersを使用）
+- `mutations`: stateの上書き(代入)
+- `actions`: methods的な。storeの上書き以外の処理や非同期通信。別actionsの呼び出しも可能
+- `getters`: stateの情報を取得。別gettersの呼び出しも可能。
 
 ```
 【.vueファイルでの基本呼び出し方】
