@@ -43,6 +43,9 @@ module.exports = {
       { text: 'Posts', link: '/posts/', exact: false  },
       { text: 'About', link: '/about/', exact: false  }, 
     ],
+    pagination: {
+      perPage: 10,
+    },
   },
   markdown: {
     toc: {
