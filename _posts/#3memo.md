@@ -1,7 +1,7 @@
 ---
 title: ＃3 駆け出しエンジニアのメモ
 layout: post
-tags: 
+tags:
   - laravel
   - Git
   - Web RTC
@@ -16,7 +16,7 @@ meta:
 `self::`…自身のクラスを指す。
 自身のオブジェクトを指したい場合は`$this`
 
-> [PHPの「self::」と「$this」の違いを現役エンジニアが解説【初心者向け】](https://techacademy.jp/magazine/29453)
+> [PHP の「self::」と「\$this」の違いを現役エンジニアが解説【初心者向け】](https://techacademy.jp/magazine/29453)
 
 ## Git
 
@@ -25,26 +25,25 @@ meta:
 
 - `git remote add リモート名 リモートURL`
 
-例えば、 `git remote add tutorial https://github.com/user/repo.git`の場合、tutorialというショートカットでURLのリモートリポジトリを登録
-
+例えば、 `git remote add tutorial https://github.com/user/repo.git`の場合、tutorial というショートカットで URL のリモートリポジトリを登録
 
 ### fetch VS pull
 
-**fetchとmergeのセット＝pull**
+**fetch と merge のセット＝ pull**
 
 変更を取り込みたいブランチがリモートブランチと対応するものであればいい。<br>
-ただ、pullしてしまうと、中身の挙動がわかりづらく、間違えやすいため、fetch派がいる。
+ただ、pull してしまうと、中身の挙動がわかりづらく、間違えやすいため、fetch 派がいる。
 <br>
-例：現在hogeブランチにいる。masterのブランチをpullしてきてしまうと、ずれてしまう。
+例：現在 hoge ブランチにいる。master のブランチを pull してきてしまうと、ずれてしまう。
 
+#### fetch について
 
-#### fetchについて
-⓵fetchではローカルリポジトリに持ってくる（自分のワークツリーには持ってこない）
+⓵fetch ではローカルリポジトリに持ってくる（自分のワークツリーには持ってこない）
 `git fetch リモート名`
 
-fetchで持ってきた変更はローカルリポジトリの中のブランチの中に入っている。
+fetch で持ってきた変更はローカルリポジトリの中のブランチの中に入っている。
 
-⓶ローカルリポジトリにfetchしてきた変更を見るには全てのブランチを見てみる
+⓶ ローカルリポジトリに fetch してきた変更を見るには全てのブランチを見てみる
 `git branch -a`
 
 ```
@@ -52,22 +51,24 @@ remotes/bak/master
 remotes/origin/master
 ```
 
-⓷上記のように出るので、該当するリモートリポジトリ名/masterでワークツリーに反映
+⓷ 上記のように出るので、該当するリモートリポジトリ名/master でワークツリーに反映
 `git merge bak/master`
 
-#### pullについて
-fetch & merge の流れ⓵〜⓷をまとめてやる方法<br>
+#### pull について
+
+fetch & merge の流れ ⓵〜⓷ をまとめてやる方法<br>
 `git pull リモート名 ブランチ名`<br>
 例：`git pull origin master`
 
 省略形<br>
 `git pull`
 
-#### pullのmerge型とrebase型がある
-merge型：`git pull リモート名 ブランチ名`→mergeコミットが残る<br>
-rebase型：`git pull --rebase リモート名 ブランチ名`→mergeコミットが残らない
+#### pull の merge 型と rebase 型がある
 
-### remoteについて
+merge 型：`git pull リモート名 ブランチ名`→merge コミットが残る<br>
+rebase 型：`git pull --rebase リモート名 ブランチ名`→merge コミットが残らない
+
+### remote について
 
 リモートの情報を詳しく知りたい場合<br>
 `git remote show リモート名`
@@ -82,12 +83,13 @@ rebase型：`git pull --rebase リモート名 ブランチ名`→mergeコミッ
   Local ref configured for 'git push':
     master pushes to master (up to date)
 ```
-上記の内容はこんな感じ。忘れた時や確認したい時に使う
-- fetchとpushのURL
-- リモートブランチ
-- git pullの挙動
-- git pushの挙動
 
+上記の内容はこんな感じ。忘れた時や確認したい時に使う
+
+- fetch と push の URL
+- リモートブランチ
+- git pull の挙動
+- git push の挙動
 
 リモートリポジトリ名の変更<br>
 `git remote rename 旧リモート名 新リモート名`
@@ -95,13 +97,15 @@ rebase型：`git pull --rebase リモート名 ブランチ名`→mergeコミッ
 リモートリポジトリの削除<br>
 `git remote rm リモート名`
 
-### mergeについて
+### merge について
 
-masterブランチをリリース用のブランチに。
+master ブランチをリリース用のブランチに。
 開発はトピックブランチにするのが、定番。
 
-#### mergeの３種類
-マージには3種類
+#### merge の３種類
+
+マージには 3 種類
+
 - Fast Foward（早送りマージ）
   - ブランチが枝分かれせず、ポインタが前に進むだけの場合
 - Auto Merge（基本的なマージ）
@@ -111,15 +115,16 @@ masterブランチをリリース用のブランチに。
 - コンフリクト
 
 #### コンフリクトを起こさないために
+
 - 複数人で同じファイルを変更しない
-- pullやmergeをする前に変更中の状態を無くす（commitやstashしておく）
-- pullするときは、pullするブランチに移動してきてからpullする
+- pull や merge をする前に変更中の状態を無くす（commit や stash しておく）
+- pull するときは、pull するブランチに移動してきてから pull する
 
 #### merge コマンド
 
 他のブランチの内容を入れる<br>
-`git merge  ブランチ名`<br>
-`git merge  リモート名/ブランチ名`
+`git merge ブランチ名`<br>
+`git merge リモート名/ブランチ名`
 
 ブランチの名前変更<br>
 `git branch -m 新しいブランチ名`
@@ -127,23 +132,25 @@ masterブランチをリリース用のブランチに。
 ブランチの削除<br>
 `git branch -d ブランチ名`
 
-
 ### merge VS rebase
 
-変更を取り込むには2種類
-- merge ←コミットが分岐する
-- rebase ←コミットが一直線になる
+変更を取り込むには 2 種類
+
+- merge ← コミットが分岐する
+- rebase ← コミットが一直線になる
 
 **作業履歴を残したい場合 →merge<br>
 履歴を綺麗に残したい場合 →rebase**
 
-**オススメ方針：プッシュ前はrebaseを使い、プッシュした後はmergeを使う。そして、コンフリクトしそうなら、merge**
+**オススメ方針：プッシュ前は rebase を使い、プッシュした後は merge を使う。そして、コンフリクトしそうなら、merge**
 
-mergeの特徴
+merge の特徴
+
 - コンフリクトの解決が比較的簡単
 - マージコミットがたくさんあると、履歴が複雑化
 
-rebaseの特徴
+rebase の特徴
+
 - 履歴を綺麗に保てる
 - コンフリクトの解決が複雑化
 
@@ -152,61 +159,69 @@ rebaseの特徴
 `git rebase ブランチ名`
 
 #### これだけはしてはいけない
-- GitHubにプッシュしたコミットをrebaseすることだけはNG。
-- `git push -f`で無理矢理プッシュしようとするのはもっとダメ。
 
+- GitHub にプッシュしたコミットを rebase することだけは NG。
+- `git push -f`で無理矢理プッシュしようとするのはもっとダメ。
 
 ### 複数のコミットをやり直す(edit)
 
-ちなみに、一個前のコミットをやり直す場合は`git commit --amend`だけでOK。
+ちなみに、一個前のコミットをやり直す場合は`git commit --amend`だけで OK。
 
+`git rebase -i コミットID`▶︎ 対話的リベースモードに入る
+やり直したいコミットを pick から edit に書き換える
 
-`git rebase -i コミットID`▶︎対話的リベースモードに入る
-やり直したいコミットをpickからeditに書き換える
 ```
 edit gh23g54 ヘッダー修正
 pick eagat24 ファイルの追加
 pick bk24ya9 READMEの修正
 ```
+
 エディターが立ち上がり、直したら保存。
 そして、ターミナルに戻って
 `git commit --amend`
 
 これでまたエディターが立ち上がり、コミットの修正をする
 
-次のコミットへ進むorリベースを完了
+次のコミットへ進む or リベースを完了
 `git rebase --continue`
 
 ### コミットを並び替える、削除する
 
-`git rebase -i コミットID`▶︎対話的リベースモードに入る
+`git rebase -i コミットID`▶︎ 対話的リベースモードに入る
 削除したいコミットを行ごと削除する
+
 ```
 pick gh23g54 ヘッダー修正
 pick eagat24 ファイルの追加
 pick bk24ya9 READMEの修正←消す
 ```
+
 並び替えたい場合は順番を入れ替えるだけ
+
 ```
 pick gh23g54 ヘッダー修正
 pick bk24ya9 READMEの修正←下と入れ替え
 pick eagat24 ファイルの追加←上と入れ替え
 ```
+
 エディターが立ち上がり、直したら保存。
 
 ### コミットをまとめる（squash）
-`git rebase -i コミットID`▶︎対話的リベースモードに入る
+
+`git rebase -i コミットID`▶︎ 対話的リベースモードに入る
+
 ```
 pick gh23g54 ヘッダー修正
 squash eagat24 ファイルの追加
 squash bk24ya9 READMEの修正
 ```
+
 エディターが立ち上がり、直したら保存。
 さらにもう一度エディターが立ち上がる。
 
 コミットをまとめたコミットメッセージが表示。そのままでも保存して終了しても良い。
 
-終わると`Successfully rebased and updated refs/heads/master.`のように書かれていたらOK
+終わると`Successfully rebased and updated refs/heads/master.`のように書かれていたら OK
 
 ### コミットを分割する
 
@@ -225,6 +240,7 @@ edit bk24ya9 READMEの修正とindexの修正
 `git reset HEAD^`
 
 それぞれ、ステージとコミットする
+
 ```
 git add README
 git commit -m 'READMEの修正'
@@ -236,14 +252,15 @@ git commit -m 'indexの修正'
 git rebase --continue
 ```
 
-### tagについて
+### tag について
+
 タグはリリースしたタイミングでつける
 
 タグには『注釈版（annotated）』『軽量版(lightweight)』がある
 
 タグ一覧を出す<br>
 `git tag`<br>
-`git tag -l "検索ワード" `
+`git tag -l "検索ワード"`
 
 【注釈版（annotated）】タグを作成する（タグ名・メッセージ・署名が可能）<br>
 `git tag -a タグ名 -m "メッセージ"`
@@ -251,10 +268,8 @@ git rebase --continue
 後からタグ付けしたい場合<br>
 `git tag タグ名 コミット名 -m "メッセージ"`
 
-
 【軽量版(lightweight)】タグを作成する（タグ名のみ）<br>
 `git tag タグ名`
-
 
 後からタグ付けしたい場合<br>
 `git tag タグ名 コミット名`
@@ -266,49 +281,52 @@ git rebase --continue
 `git push リモート名 タグ名`
 
 ### その他
-指定のブランチの一つ上のコミットにHEADを動かす<br>
+
+指定のブランチの一つ上のコミットに HEAD を動かす<br>
 `git checkout ブランチ名^`
 
-指定のブランチのHEAD位置を三つ前に戻す（相対リファレンス）<br>
+指定のブランチの HEAD 位置を三つ前に戻す（相対リファレンス）<br>
 `git branch -f ブランチ名 HEAD~3`
 
 履歴を前に戻す（ワークツリーは変わらない）<br>
 `git reset HEAD~1`
 
-▼これはワークツリーも変わる<br>
+▼ これはワークツリーも変わる<br>
 `git reset --hard master`<br>
-ブランチがmasterブランチと同じコミットに紐づけられる動作。<br>
+ブランチが master ブランチと同じコミットに紐づけられる動作。<br>
 `--hard`オプションにより、ワーキングツリーにも反映されます。
 
 既存のコミットを取り消すためのコマンド<br>
 `git revert <commit>`
 
 > 参考 [git reset 解説](https://qiita.com/forest1/items/f7c821565a7a7d64d60f)
-***
+
+---
 
 ## WebRTC
-`P2P（peer to peer）`で行うため、サーバーの負荷はない。相手のIPアドレスを元に通信している。
 
-`STUNサーバー`…自分のIPアドレスとを相手に送ることで実行
-STUNサーバーでIPアドレスを送る形式を`SDP`という。IDやメディアの種類などを明示して送るため、招待された相手はそれに従うだけで良い。デバイスの違いをSDPで整えて指定のデータで補う。
+`P2P（peer to peer）`で行うため、サーバーの負荷はない。相手の IP アドレスを元に通信している。
 
-`シグナリング`…SDPをお互いにやり取りすること。IDとパスワードみたいなもの。
+`STUNサーバー`…自分の IP アドレスとを相手に送ることで実行
+STUN サーバーで IP アドレスを送る形式を`SDP`という。ID やメディアの種類などを明示して送るため、招待された相手はそれに従うだけで良い。デバイスの違いを SDP で整えて指定のデータで補う。
+
+`シグナリング`…SDP をお互いにやり取りすること。ID とパスワードみたいなもの。
 何かしらの信号を渡す必要がある。結局`WebSocket`や`Firebase`などのサーバが必要になることが多い。
 
-> [WebRTC徹底解説](https://zenn.dev/yuki_uchida/books/c0946d19352af5/viewer/0e7daa)
-
+> [WebRTC 徹底解説](https://zenn.dev/yuki_uchida/books/c0946d19352af5/viewer/0e7daa)
 
 ## その他
-- `WebGL`(ウェブ・ジーエル)…ブラウザで3D表示するための標準仕様。（Three.jsが定番らしい）
-- `Learn Git Branching`…日本語対応・レベル感ちょうどいい・ゲーム性ありのGit勉強ゲームサイト。Gitの教材やったら、次はこれかな。
+
+- `WebGL`(ウェブ・ジーエル)…ブラウザで 3D 表示するための標準仕様。（Three.js が定番らしい）
+- `Learn Git Branching`…日本語対応・レベル感ちょうどいい・ゲーム性ありの Git 勉強ゲームサイト。Git の教材やったら、次はこれかな。
 
 > [Learn Git Branching](https://learngitbranching.js.org/?locale=ja)
 
-- `WebRTC`…Web RealTime Communicationの略。音声や映像・データをリアルタイムに送受信することが可能。
+- `WebRTC`…Web RealTime Communication の略。音声や映像・データをリアルタイムに送受信することが可能。
 - `正常`…想定範囲内で尚且つ歓迎する状況。
 - `準正常`…想定の範囲内だけど歓迎していない状況。
 - `異常`…想定外の状況のこと。に分ける
-- `Agora`…音声や動画などのリアルタイム通信のSaaS。どうやら「Clubhouse」が使っていると噂。
+- `Agora`…音声や動画などのリアルタイム通信の SaaS。どうやら「Clubhouse」が使っていると噂。
 
 ## 個人開発のモチベーション
 
@@ -328,7 +346,7 @@ STUNサーバーでIPアドレスを送る形式を`SDP`という。IDやメデ�
 
 「へぇ〜今はそんなことしてるんだ！」「あの時どう思ってたの？」とか。僕はむちゃくちゃアドレナリンが出るタイプです。
 
-### SNSで疎遠になる
+### SNS で疎遠になる
 
 一方で、疎遠になってしまう友達もいます。
 
@@ -336,18 +354,17 @@ STUNサーバーでIPアドレスを送る形式を`SDP`という。IDやメデ�
 
 だからこそ、僕にとって、友達と疎遠になることほど悲しく、虚しいことはない…。
 
-現状、僕らはTwitterやInstagramなどのSNSで繋がってはいて、簡単な情報（彼女はいるのか・どこに住んでいるのか・何に興味があるのか）は何となく手に入れています。
+現状、僕らは Twitter や Instagram などの SNS で繋がってはいて、簡単な情報（彼女はいるのか・どこに住んでいるのか・何に興味があるのか）は何となく手に入れています。
 
-しかし、「そうだね！また今度ご飯行こうぜ！」はお世辞になりました。<br>
-#僕だけじゃないよね！？
+しかし、「そうだね！また今度ご飯行こうぜ！」はお世辞になりました。<br> #僕だけじゃないよね！？
 
-結果、『SNSではやりとりするが、リアルでは会わない』流れができてしまった…。
+結果、『SNS ではやりとりするが、リアルでは会わない』流れができてしまった…。
 
 デジタルネイティブと言われる僕らは、メッセージで相手に応えてばかりで期待が積み上がってしまって、リアルに会うことへのギャップに対処することが面倒になってしまった。
 
-**つまり、SNSが活発になってしまったために、リアルのハードルが上がってしまった。**
+**つまり、SNS が活発になってしまったために、リアルのハードルが上がってしまった。**
 
-ネット民が「SNSで知り合って、リアルで会う」を理想としてたのに、逆流のように「リアルで仲良くなって、SNSで”しか”やりとりしない」になってしまったんですね。
+ネット民が「SNS で知り合って、リアルで会う」を理想としてたのに、逆流のように「リアルで仲良くなって、SNS で”しか”やりとりしない」になってしまったんですね。
 
 そこで僕のエゴを叶えようと思い、『声』にフォーカスして接着点を増やす『Dabelu』を開発してみようと考えました。
 

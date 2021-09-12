@@ -1,7 +1,7 @@
 ---
 title: ＃1 駆け出しエンジニアのメモ
 layout: post
-tags: 
+tags:
   - laravel
   - Vue
   - Git
@@ -11,13 +11,11 @@ meta:
     content: 駆け出しエンジニアのリアルなメモブログです。
 ---
 
-
 ざっくばらんメモです。週一程度更新の予定です。
 
 駆け出しエンジニアのメモなので、間違っている点も結構あると思います。
 
 その際は教えていただきたいです。むちゃくちゃ嬉しいです。チョコあげます。🍫
-
 
 ## laravel について
 
@@ -178,29 +176,29 @@ vi を終了したい時、`:wp`
 
 例えば、`npm run dev`とかってよく使いますよね。
 でも、毎度毎度打ったり、遡ったりするのは面倒…。
-そういう際にAlias設定をしておくと便利。
+そういう際に Alias 設定をしておくと便利。
 
-
-.bash_profileにあるか確認
+.bash_profile にあるか確認
 
 `cat ~/.bash_profile;`
 
-中身がなければvimで書いていく。
+中身がなければ vim で書いていく。
 
 `vi ~/.bash_profile;`
 
-書き方は色々あるようだけど、僕のはこんな感じ↓。
+書き方は色々あるようだけど、僕のはこんな感じ ↓。
 
 ```
 alias unittest="docker-compose exec php  vendor/phpunit/phpunit/phpunit"
 ```
-`docker-compose exec php  vendor/phpunit/phpunit/phpunit"`
 
-のコマンドを`unittest`とだけ打てば実行される。⇦便利すぎ。
+`docker-compose exec php vendor/phpunit/phpunit/phpunit"`
+
+のコマンドを`unittest`とだけ打てば実行される。⇦ 便利すぎ。
 
 `source ~/.bash_profile`
 
-ルートディレクトリで一回実行。そして、エイリアスを実行したいディレクトリで↑上のコマンドで「エイリアス使わせてねー」と申請しておけばOK。
+ルートディレクトリで一回実行。そして、エイリアスを実行したいディレクトリで ↑ 上のコマンドで「エイリアス使わせてねー」と申請しておけば OK。
 
 これでそのディレクトリで`unittest`を使えるようになった。
 
@@ -209,7 +207,6 @@ alias unittest="docker-compose exec php  vendor/phpunit/phpunit/phpunit"
 ---
 
 ## その他
-
 
 - `VuePress`…Vue の静的サイトジェネレータで Nuxt よりも手軽に作れて、ブログに特化させている（React でいうところの GATSBY 的なもの）← このメモをこれで開発しようと勉強中
 - `npm uninstall パッケージ名`でインストールして、やっぱり不必要だったなーと思うパッケージをアンインストールできる
@@ -227,19 +224,19 @@ alias unittest="docker-compose exec php  vendor/phpunit/phpunit/phpunit"
 - `git diff リモート名/ブランチ名`でコミットした差分を見ることができる。（GitHub で見ればいいけどね。）
 - `concat`…文字列の連結に使うもの。
 
-例えば…Laravelの場合
+例えば…Laravel の場合
 
 `{$name} is god`
 
 `$name . 'is god'`
 
-どちらでもOK
+どちらでも OK
 
 - PR TIMES には 30,000 円でプレスリリースできる
 - ユニコーン企業 🦄…『創業 10 年以内・評価額 10 億ドル以上・未上場』のエゲツないベンチャー企業のことを指す。
 - ふるさと納税は住民税によって変わる
-  - 住民税は住んでいる地域と所得によって変わる（二年目なら10,000円いかないくらいじゃないかな？）
-  - 新卒1年目は住民税がかからない
+  - 住民税は住んでいる地域と所得によって変わる（二年目なら 10,000 円いかないくらいじゃないかな？）
+  - 新卒 1 年目は住民税がかからない
   - 他県から東京に引っ越すと住民税が一時的に高いらしい（これ僕です。）
 - いいウイスキーは度数が高い
 

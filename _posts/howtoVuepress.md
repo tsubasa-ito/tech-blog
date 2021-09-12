@@ -1,7 +1,7 @@
 ---
 title: VuePressで初めての投稿
 layout: post
-tags: 
+tags:
   - JavaScript
   - DOM
 date: 2021-04-18
@@ -10,8 +10,8 @@ meta:
     content: vuepress 更新したらすること
 ---
 
-
 ## 更新したら…
+
 今のところ更新したら、これしなきゃダメだよね。
 
 ```
@@ -23,17 +23,17 @@ git commit -m 'commit message'
 git push
 ```
 
-▼js{5}と書けば、Jsとして判定しカラー付け。さらに行目を書けば、その部分をさらにハイライト。
+▼js{5}と書けば、Js として判定しカラー付け。さらに行目を書けば、その部分をさらにハイライト。
 
 ```js{5}
 export default {
-  name: 'MyComponent',
+  name: "MyComponent",
   data() {
     return {
-      message: 'ハイライトされてる！'
-    }
-  }
-}
+      message: "ハイライトされてる！",
+    };
+  },
+};
 ```
 
 ::: tip
@@ -48,9 +48,13 @@ export default {
 やばい
 :::
 
-
 ## 絵文字変換
+
 - :smile:
 - :zipper_mouth_face:
 - :thinking:
 - :mask:
+
+## スタイル変更（CSS）
+
+- `.vuepress > styles > index.styl`に CSS を書いていく
