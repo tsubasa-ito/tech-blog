@@ -33,8 +33,8 @@ module.exports = {
       useGeo: true
     },
     footer: {
-      poweredBy: true,
-      poweredByTheme: true,
+      poweredBy: false,
+      poweredByTheme: false,
       custom: 'Copyright 2021-present | Tsubasa',
     },
     lastUpdated: false,
